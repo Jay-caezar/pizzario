@@ -1,0 +1,71 @@
+/** @format */
+h1 {
+	margin: 0;
+}
+.header-container {
+	width: 100%;
+	height: 14rem;
+	background: rgb(32, 32, 32);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 2rem;
+
+	.company_name {
+		width: 80%;
+		color: gold;
+		font-size: 4rem;
+		font-weight: normal;
+		font-family: Georgia, 'Times New Roman', Times,
+			serif;
+	}
+}
+.pizza-list {
+	width: 100%;
+	// height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2rem;
+
+	.pizza-container {
+		width: 25%;
+		height: 20rem;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		display: inherit;
+		align-items: flex-end;
+
+		.details {
+			width: 100%;
+			height: 40%;
+			background: rgba(202, 121, 0, 0.863);
+			display: inherit;
+			flex-direction: column;
+			justify-content: center;
+			padding: 0 2rem;
+
+			.pizza-name,
+			.pizza-description,
+			.pizza-price {
+				padding: 0;
+				margin: 0;
+			}
+			.pizza-name {
+				font-size: 1.2rem;
+			}
+			.pizza-description,
+			.pizza-price {
+				font-size: 0.7rem;
+			}
+			.pizza-description {
+				margin: 1rem 0;
+			}
+
+			.pizza-price {
+				font-size: 1rem;
+			}
+		}
+	}
+}
