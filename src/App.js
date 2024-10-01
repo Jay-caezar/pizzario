@@ -54,43 +54,43 @@ export const pizzaData = [
 ];
 
 function App() {
-	// const {
-	// 	name,
-	// 	ingredients,
-	// 	price,
-	// 	soldOut,
-	// 	photoName,
-	// } = pizzaData;
 	return (
 		<div className='App'>
-			<div className='header-container'>
-				<h1 class='company_name'>Prime Pizza.</h1>
-			</div>
-			<div className='pizza-list'>
-				{pizzaData.map(
-					({
-						name,
-						ingredients,
-						price,
-						soldOut,
-						photoName,
-					} = pizzaData) => {
-						return (
-							<PizzaCard
-								pizzaName={name}
-								pizzaIngredients={ingredients}
-								pizzaPrice={price}
-								pizzaSoldOut={soldOut}
-								pizzaPhoto={photoName}
-								key={name}
-							/>
-						);
-					}
-				)}
-			</div>
+			<HeaderStatus />
+			<PizzaList />
 		</div>
 	);
 }
 
-// {name, ingredient, price, soldOut, photoName}=pizzaData
+const PizzaList = () => {
+	return (
+		<div className='pizza-list'>
+			{pizzaData.map((pizza) => {
+				console.log(pizza);
+				return <PizzaCard pizzaInfo={pizza} />;
+			})}
+		</div>
+	);
+};
+
+function HeaderStatus() {
+	const hour = new Date().getHours();
+	const openHour = 7;
+	const closeHour = 22;
+	const isOpen =
+		hour >= openHour && hour <= closeHour;
+
+	return (
+		<div className='header-container'>
+			<h1 class='company_name'>Prime Pizza.</h1>
+			<p>
+				We are currently{' '}
+				{isOpen
+					? `Open until ${closeHour}:00. and we woulld very much like you to drop by`
+					: 'closed'}
+			</p>
+		</div>
+	);
+}
+
 export default App;

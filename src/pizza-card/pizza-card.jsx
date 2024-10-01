@@ -2,39 +2,20 @@
 import React from 'react';
 import './pizza-card.scss';
 
-const PizzaCard = ({
-	pizzaName,
-	pizzaIngredients,
-	pizzaPrice,
-	soldOut,
-	pizzaPhoto,
-}) => {
-	console.log(pizzaPhoto);
+const PizzaCard = ({ pizzaInfo }) => {
+	const { name, ingredients, price, soldOut, photoName } = pizzaInfo;
 	return (
 		<div
-			className='pizza-container'
+			className={`pizza-container ${soldOut ? 'sold_out' : ''}`}
 			style={{
-				backgroundImage: `url(${pizzaPhoto})`,
+				backgroundImage: `url(${photoName})`,
 			}}>
-			{/* <img
-				src={pizzaPhoto}
-				alt=''
-			/> */}
 			<div className='details'>
-				<h2 className='pizza-name'>
-					{pizzaName}
-				</h2>
-				<p className='pizza-description'>
-					{pizzaIngredients}
-				</p>
+				<h2 className='pizza-name'>{name}</h2>
+				<p className='pizza-description'>{ingredients}</p>
 				<p className='pizza-price'>
-					$ {pizzaPrice}
-					<span
-						className={`sold-out ${
-							soldOut ? 'active' : ''
-						}`}>
-						{soldOut ? 'Sold Out' : 'Available'}
-					</span>
+					$ {price}
+					<span className={`sold-out ${soldOut ? 'active' : ''}`}>{soldOut ? 'Out of stock' : ''}</span>
 				</p>
 			</div>
 		</div>

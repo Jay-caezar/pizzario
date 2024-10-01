@@ -7,6 +7,7 @@ h1 {
 	height: 14rem;
 	background: rgb(32, 32, 32);
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 2rem;
@@ -16,8 +17,12 @@ h1 {
 		color: gold;
 		font-size: 4rem;
 		font-weight: normal;
-		font-family: Georgia, 'Times New Roman', Times,
-			serif;
+		font-family: Georgia, 'Times New Roman', Times, serif;
+	}
+
+	p {
+		width: 80%;
+		color: #f7f7f7;
 	}
 }
 .pizza-list {
@@ -27,6 +32,7 @@ h1 {
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 2rem;
+	padding-bottom: 2rem;
 
 	.pizza-container {
 		width: 25%;
@@ -64,8 +70,21 @@ h1 {
 			}
 
 			.pizza-price {
-				font-size: 1rem;
+				font-size: 0.9rem;
+
+				.sold-out {
+					margin-left: 1rem;
+					font-size: 0.7rem;
+				}
 			}
+		}
+	}
+
+	.sold_out {
+		filter: grayscale(1);
+
+		.details {
+			filter: grayscale(0);
 		}
 	}
 }
